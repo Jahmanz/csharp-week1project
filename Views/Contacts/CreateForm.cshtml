@@ -1,8 +1,17 @@
 
 <h1>To Do List</h1>
 <h3>Add a new contact:</h3>
-<form action='/contacts' method='post'>
-  <label for='new-contact'>Contact Description</label>
-  <input id='new-contact' name='new-contact' type='text'>
-  <button type='submit'>Add contact</button>
+<form action= "/contacts/new" method='post'>
+  <div class="form-group">
+        <label for="contact-name">Name:</label>
+        <input id="contact-name" name="contact-name" class="form-control" type="text">
+
+        <label for="contact-phone">Phone:</label>
+        <input id="contact-phone" name="contact-phone" class="form-control" type="text">
+
+        <label for="contact-address">Phone Number:</label>
+        <input id="contact-address" name="contact-address" class="form-control" type="text">
+      </div>
+
+       <a href="/Details">Add New Contact</a>
 </form>

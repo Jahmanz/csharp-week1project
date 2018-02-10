@@ -10,36 +10,26 @@ namespace AddressBook.Controllers
       [HttpGet("/contacts")]
       public ActionResult Index()
       {
-          List<Contact> allContacts = Contact.GetAll();
-          return View(allContacts);
+          return View();
       }
 
       [HttpGet("/contacts/new")]
       public ActionResult CreateForm()
       {
-          return View();
+          return View(newContact);
       }
-      [HttpGet("/contacts/{id}")]
-        public ActionResult Details(int id)
-        {
-            Contact contact = Contact.Find(id);
-            return View(contact);
-        }
 
       [HttpPost("/contacts")]
-      public ActionResult Create()
+      public ActionResult Details()
       {
-          Contact newContact = new Contact(Request.Form["new-contact"]);
-          List<Contact> allContacts = Contact.GetAll();
-          return View("Index", allContacts);
-        }
+      string newName = (Request.Form["contact-name"]);
+       string newPhone = (Request.Form["contact-phone"]);
+       string newAddress = (Request.Form["contact-address"]);
 
-        [HttpPost("/contacts/delete")]
-        public ActionResult DeleteAll()
-        {
-            Contact.ClearAll();
-            return View();
-        }
+       Contact newContact = new Contact(newName, newPhone, newAddress);
+
+       return View("Details", newContact);
+      }
 
     }
 }

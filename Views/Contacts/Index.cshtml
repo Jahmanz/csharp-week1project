@@ -3,6 +3,8 @@
   @foreach (var contact in Model)
   {
     <li><a href='/contacts/@contact.GetId()'>@contact.GetName()</a></li>
+    <li><a href='/contacts/@contact.GetId()'>@contact.GetAddress()</a></li>
+    <li><a href='/contacts/@contact.GetId()'>@contact.GetPhone()</a></li>
   }
 </ul>
 <a href='/contacts/new'>Click here to add a new contact</a>
